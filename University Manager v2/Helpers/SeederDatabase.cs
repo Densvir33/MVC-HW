@@ -32,7 +32,7 @@ namespace University_Manager_v2.Helpers
                 };
                 IdentityRole roleStudent = new IdentityRole()
                 {
-                    Name = "Guest",
+                    Name = "Student",
                 };
                 roleManager.Create(roleAdmin);
                 roleManager.Create(roleUser);

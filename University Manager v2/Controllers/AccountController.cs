@@ -87,8 +87,9 @@ namespace University_Manager_v2.Controllers
                         switch (role)
                         {
                             case "Admin":
-                                return RedirectToAction("Dashboard", "AdminPanel", new { area = "Admin" });
-                                
+                                return RedirectToAction("Dashboard", "Admin", new { area = "Admin" });
+                            case "User":
+                                return RedirectToAction("HomePage","User",  new { area = "User" });
                             default:
                                 return RedirectToAction("Index", "Home");
                         }
@@ -185,7 +186,7 @@ namespace University_Manager_v2.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("HomePage", "User", new {area="User"});
                 }
                 AddErrors(result);
             }
