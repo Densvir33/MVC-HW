@@ -54,15 +54,15 @@ namespace University_Manager_v2
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "2578601942440636",
+               appSecret: "25c8dbe23871b341031fa73a8d3a04b3");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "128238207985-vt26mbc4cesv6c1aq65cpp9rofgdel8i.apps.googleusercontent.com",
+                ClientSecret = "SgL3YR5iHcRp9cXK2R7wObi6"
+            });
         }
     }
 }

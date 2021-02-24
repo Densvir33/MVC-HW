@@ -12,7 +12,6 @@ namespace University_Manager_v2.Models.Entity.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
-
         public virtual Group Group { get; set; }
         public int? GroupId { get; set; }
 
