@@ -223,3 +223,4 @@ C:\Users\Ernendo\Desktop\New folder\MVC-HW\University Manager v2\obj\Debug\Unive
 C:\Users\Ernendo\Desktop\New folder\MVC-HW\University Manager v2\obj\Debug\University Manager v2.dll
 C:\Users\Ernendo\Desktop\New folder\MVC-HW\University Manager v2\obj\Debug\University Manager v2.pdb
 C:\Users\Ernendo\Desktop\New folder\MVC-HW\University Manager v2\obj\Debug\University_Manager_v2.Migrations.your_migr1_name.resources
+C:\Users\Ernendo\Desktop\New folder\MVC-HW\University Manager v2\obj\Debug\University_Manager_v2.Migrations.your_migr_name.resources

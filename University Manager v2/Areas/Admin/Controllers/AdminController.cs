@@ -17,13 +17,12 @@ namespace University_Manager_v2.Areas.Admin.Controllers
             return View();
         }
         [Authorize(Roles = "Admin")]
-        public ActionResult GetAllStudents()
+        public ActionResult GetAllGroups()
         {
-            IEnumerable<StudentViewModel> models = _context.Students.Select(m => new StudentViewModel
+            IEnumerable<GroupViewModels> models = _context.Groups.Select(m => new GroupViewModels
             {
                 Id = m.Id,
-                Name = m.Name,
-                Image = m.Image
+                Name = m.Name
             });
             return View(models);
 
@@ -65,6 +64,26 @@ namespace University_Manager_v2.Areas.Admin.Controllers
             _context.Students.Remove(St);
             _context.SaveChanges();
             return RedirectToAction("Dashboard");
+        }
+
+        public ActionResult AddGroup()
+        {
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult AddGroup(GroupViewModels model)
+        {
+            if (model != null)
+            {
+                Group group = new Group()
+                {
+                    Name = model.Name
+                };
+                _context.Groups.Add(group);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("GetAllGroups");
         }
     }
 }

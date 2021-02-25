@@ -12,7 +12,8 @@ namespace University_Manager_v2.Models.Entity.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public string StudentId { get; set; }
-        
+
+
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

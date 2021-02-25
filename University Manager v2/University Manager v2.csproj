@@ -196,9 +196,12 @@
     <Compile Include="Migrations\202102231534174_your_migr1_name.designer.cs">
       <DependentUpon>202102231534174_your_migr1_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102251416568_your_migr_name.cs" />
+    <Compile Include="Migrations\202102251416568_your_migr_name.designer.cs">
+      <DependentUpon>202102251416568_your_migr_name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Entity\Initializer\Initializer.cs" />
     <Compile Include="Models\Entity\Models\Group.cs" />
     <Compile Include="Models\Entity\Models\Student.cs" />
     <Compile Include="Models\GroupViewModels.cs" />
@@ -227,8 +230,11 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Dashboard.cshtml" />
     <Content Include="Areas\User\Views\User\Detail.cshtml" />
+    <Content Include="Areas\User\Views\User\GetAllGroups.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddGroup.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\GetAllGroups.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102231534174_your_migr1_name.resx">
       <DependentUpon>202102231534174_your_migr1_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102251416568_your_migr_name.resx">
+      <DependentUpon>202102251416568_your_migr_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

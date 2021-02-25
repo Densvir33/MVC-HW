@@ -11,11 +11,11 @@ namespace University_Manager_v2.Areas.User.Controllers
 {
     public class UserController : Controller
     {
-        private readonly ApplicationDbContext ctx = new ApplicationDbContext();
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
         // GET: User/User
         public ActionResult HomePage()
         {
-            IEnumerable<GroupViewModels> models = ctx.Groups.Select(m => new GroupViewModels()
+            IEnumerable<GroupViewModels> models = _context.Groups.Select(m => new GroupViewModels()
             {
                 Id = m.Id,
                 Name = m.Name
@@ -23,59 +23,28 @@ namespace University_Manager_v2.Areas.User.Controllers
             return View(models);
         }
 
-        public ActionResult SentRequest(string name)
+        public ActionResult GetAllGroups()
         {
-            var user = ctx.Users.Find(User.Identity.GetUserId());
+            var groups = _context.Groups.Select(x => new GroupViewModels
+            {
+                Id = x.Id,
+                Name = x.Name,
+            });
+            return View(groups);
+        }
+
+
+        public ActionResult SendRequest(string groupName)
+        {
+            var user = _context.Users.Find(User.Identity.GetUserId());
             if (user.Student.Group == null)
             {
-                user.Student.Group = ctx.Groups.FirstOrDefault(x => x.Name == name);
-                ctx.SaveChanges();
+                user.Student.Group = _context.Groups.FirstOrDefault(x => x.Name == groupName);
+                _context.SaveChanges();
             }
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Delete(int id)
-        {
-            ctx.Groups.Remove(ctx.Groups.Find(id));
-            ctx.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Add()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Add(GroupViewModels pt)
-        {
-            ctx.Groups.Add(new Group
-            {
-                Name = pt.Name
-            });
-            ctx.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            Group p = ctx.Groups.Find(id);
-            GroupViewModels model = new GroupViewModels()
-            {
-                Id = p.Id,
-                Name = p.Name
-            };
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult Edit(GroupViewModels pt)
-        {
-            Group p = ctx.Groups.Find(pt.Id);
-            p.Name = pt.Name;
-            ctx.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         public ActionResult About()
         {
@@ -93,7 +62,7 @@ namespace University_Manager_v2.Areas.User.Controllers
         public ActionResult Detail()
         {
             string Id = User.Identity.GetUserId();
-            var user = ctx.Users.Find(Id);
+            var user = _context.Users.Find(Id);
             var student = user.Student;
             StudentViewModel St = new StudentViewModel()
             {
